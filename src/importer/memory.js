@@ -6,6 +6,7 @@ export default class MemoryImporter extends AbstractImporter {
   }
 
   set data(data) {
+    this.checkType(data);
     this._data = data;
   }
 
