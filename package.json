@@ -1,0 +1,34 @@
+{
+  "name": "datatube",
+  "version": "0.1.0",
+  "description": "Datatube",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require babel-polyfill --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/usablica/datatube.git"
+  },
+  "keywords": [
+    "datatube"
+  ],
+  "author": "Afshin Mehrabani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usablica/datatube/issues"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "homepage": "https://github.com/usablica/datatube#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-es2015": "^6.18.0",
+    "mocha": "^3.2.0"
+  }
+}
