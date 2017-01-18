@@ -1,6 +1,6 @@
 import assert from 'assert';
 import Datatube from '../src/index';
-import MemoryImporter from '../src/importer/memory.js';
+import Importer from '../src/importer/importer.js';
 
 describe('Class instantiation', () => {
   describe('Datatube', () => {
@@ -11,9 +11,9 @@ describe('Class instantiation', () => {
   });
 
   describe('Importer', () => {
-    it('should be able to create a MemoryImporter class', () => {
-      let inst = new MemoryImporter();
-      assert.equal(inst instanceof MemoryImporter, true);
+    it('should be able to create an Importer class', () => {
+      let inst = new Importer();
+      assert.equal(inst instanceof Importer, true);
     });
   });
 });

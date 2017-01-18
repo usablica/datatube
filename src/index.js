@@ -1,8 +1,8 @@
-import Log from './log'
+import Debug from './debug'
 
 export default class Datatube {
   constructor(tube = null) {
-    this.log = new Log("Datatube");
+    this.debug = new Debug("Datatube");
     this.tube = tube;
   }
 
