@@ -17,16 +17,13 @@ export default class MemoryStorage extends AbstractStorage {
     if (!(items instanceof Array))
       this.debug.error(errors.MUST_BE_ARRAY);
 
-    for (item of items) {
+    items.map((item) => {
       this.addItem(item);
-    }
+    });
   }
 
   addItem(item) {
-    if (this.items.length == 0)
-      this.debug.error(errors.ITEMS_IS_EMPTY);
-
-    this._items.append(this._importer.transform(items));
+    this._items.push(this._importer.transform(item));
   }
 
   get items() {

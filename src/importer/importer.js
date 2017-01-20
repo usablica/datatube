@@ -12,16 +12,23 @@ export default class Importer extends AbstractImporter {
   /**
    * Transforms the given item to Datatube item format
    *
-   * @param {mixed} item
+   * @param {Mixed} item
+   * @return {Object}
    */
   transform(item) {
     if (item == null)
       this.debug.error(errors.ITEM_IS_NULL);
 
-    this._importer.checkItemType(item);
+    this.checkItemType(item);
 
-    return {
+    let obj = {
+      _id: this.id,
       _item: item
     };
+
+    // next id
+    this.inc();
+
+    return obj;
   }
 }

@@ -7,11 +7,18 @@ import {errors,warnings} from '../messages.js'
 export default class AbstractImporter {
   constructor() {
     this.debug = new Debug("importer");
+    // data type of the Importer class (each item)
     this._type = null;
+    // to generate unique IDs
+    this._inc = 0;
 
     if (new.target === AbstractImporter) {
       this.debug.error(errors.NOT_IMPLEMENTED);
     }
+  }
+
+  inc() {
+    this._inc++;
   }
 
   set type(type) {
@@ -20,6 +27,12 @@ export default class AbstractImporter {
 
   get type() {
     return this._type;
+  }
+
+  get id() {
+    // it should be a combination of incremental ID and a random string
+    const now = +new Date();
+    return parseInt(now + "" + this._inc, 10);
   }
 
   autoType(item) {
@@ -50,9 +63,11 @@ export default class AbstractImporter {
    */
   checkItemType(item) {
     if (this.type === null)
-      this.debug.error(errors.CANNOT_PREDICT_DATATYPE);
+      this.autoType(item);
 
     if (typeof item != this.type)
       this.debug.error(errors.DIFFERENT_DATATYPE);
+
+    return true;
   }
 }
