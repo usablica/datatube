@@ -2,7 +2,7 @@ import assert from 'assert';
 import Importer from '../../src/importer/importer';
 
 describe('Importer', () => {
-  describe('type checker', () => {
+  describe('Type Checker', () => {
     it('should not be able to check the type when there is no type already set', () => {
       assert.throws(() => {
         let importer = new Importer();
