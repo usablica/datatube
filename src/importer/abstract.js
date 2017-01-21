@@ -67,7 +67,5 @@ export default class AbstractImporter {
 
     if (typeof item != this.type)
       this.debug.error(errors.DIFFERENT_DATATYPE);
-
-    return true;
   }
 }
