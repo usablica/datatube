@@ -14,16 +14,27 @@ export default class MemoryStorage extends AbstractStorage {
   }
 
   addItems(items) {
-    if (!(items instanceof Array))
-      this.debug.error(errors.MUST_BE_ARRAY);
+    return new Promise((reject, resolve) => {
+      if (!(items instanceof Array))
+        this.debug.error(errors.MUST_BE_ARRAY);
 
-    items.map((item) => {
-      this.addItem(item);
+      let promises = items.map((item) => {
+        return this.addItem(item);
+      });
+
+      Promise.all(promises).then(() => {
+        resolve();
+      }).catch(() => {
+        reject();
+      });
     });
   }
 
   addItem(item) {
-    this._items.push(this._importer.transform(item));
+    return new Promise((reject, resolve) => {
+      this._items.push(this._importer.transform(item));
+      resolve();
+    });
   }
 
   get items() {

@@ -1,5 +1,6 @@
 import assert from 'assert';
-import Datatube from '../src/index';
+import Datatube from '../src/datatube';
+import Tube from '../src/tube';
 import Importer from '../src/importer/importer';
 import MemoryStorage from '../src/storage/memory';
 
@@ -8,7 +9,7 @@ describe('Class instantiation', () => {
   describe('Datatube', () => {
     it('should be able to create a Datatube class', () => {
       let inst = new Datatube();
-      assert.equal(inst instanceof Datatube, true);
+      assert.equal(inst instanceof Tube, true);
     });
   });
 

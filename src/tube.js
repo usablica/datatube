@@ -2,31 +2,29 @@ import Debug from './debug'
 import MemoryStorage from './storage/memory'
 
 export default class Tube {
-  constructor(tube = null, storage = MemoryStorage) {
+  constructor(name = null, storage = MemoryStorage) {
     this.debug = new Debug("Tube");
     this._storage = new storage();
-    this.tube = tube;
+    this.name = name;
   }
 
-  get tube() {
-    return this._tube;
+  get name() {
+    return this._name;
   }
 
-  set tube(tube) {
-    this._tube = tube;
+  set name(name) {
+    this._name = name;
   }
 
   addItems(items) {
-    this._storage.addItems(items);
-    return this;
+    return this._storage.addItems(items);
   }
 
   addItem(item) {
-    this._storage.addItem(item);
-    return this;
+    return this._storage.addItem(item);
   }
 
   get items() {
-    return._storage.items;
+    return this._storage.items;
   }
 }
